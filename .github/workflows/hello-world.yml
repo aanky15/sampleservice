@@ -2,6 +2,12 @@ name: Hello World
 
 on:
   push:
+  workflow_dispatch:
+    inputs:
+      environment: 
+        description: 'Target environment'
+        required: false
+        default: 'Staging'
   pull_request:
 
 jobs:

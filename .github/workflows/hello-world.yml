@@ -6,13 +6,15 @@ on:
   workflow_dispatch:
     inputs:
       environment:
-        description: "Environment"
-        required: true
+        description: "Target environment"
+        required: false
+        default: "Staging"
         type: string
 
       message:
         description: "Message from Port"
-        required: true
+        required: false
+        default: "Hello from Port"
         type: string
 
 jobs:

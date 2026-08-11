@@ -3,6 +3,17 @@ name: Hello World
 on:
   push:
   pull_request:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Environment"
+        required: true
+        type: string
+
+      message:
+        description: "Message from Port"
+        required: true
+        type: string
 
 jobs:
   hello:
@@ -19,3 +30,8 @@ jobs:
 
       - name: Run hello world app
         run: python app.py
+
+      - name: Show Port inputs
+        run: |
+          echo "Environment: ${{ inputs.environment }}"
+          echo "Message: ${{ inputs.message }}"
